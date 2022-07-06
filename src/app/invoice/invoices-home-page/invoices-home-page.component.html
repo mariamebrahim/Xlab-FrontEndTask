@@ -1,0 +1,36 @@
+
+<div class="container">
+
+    <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="Invoice ID" [(ngModel)]="id" aria-label="Search" aria-describedby="search-addon" />
+        <button type="button" class="btn btn-outline-primary" (click)="getInvoiceByID()">search</button>
+      </div>
+
+      <button type="button" class="btn btn-primary">Insert a new Invoice</button>
+      <button  (click)="getAllInvoices()" type="button" class="btn btn-warning">Get ALL Invoices</button>
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Invoice ID</th>
+            <th scope="col">Client Name</th>
+            <th scope="col">Invoice Date</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr scope="row" *ngFor="let item of Invs">
+            <td>{{item.invoice_ID}}</td>
+            <td>{{item.client_Name}}</td>
+            <td>{{item.invoice_Date}}</td>
+            <td><a [routerLink]="['/details',item.invoice_ID]" type="button" class="btn btn-info">Details</a>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+</div>
+</div>
+

@@ -1,0 +1,34 @@
+
+
+<h4>Invoice ID : {{Invs[0].invoice_ID}}</h4>
+<h4>Client Name : {{Invs[0].client_Name}} </h4>
+<h4>Invoice_Date : {{Invs[0].invoice_Date}}</h4>
+
+<button type="button" class="btn btn-primary" [routerLink]="['/additem']">Insert a new item</button>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Product ID</th>
+        <th scope="col">Product Price</th>
+        <th scope="col">Product Quantity</th>
+        <th scope="col">Total Price</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr scope="row" *ngFor="let item of Invs">
+        <td >{{item.product_ID}}</td>
+        <td>{{item.product_Price}}</td>
+        <td>{{item.product_Quantity}}</td>
+        <td>{{item.totalPrice}}</td>
+        <td><button type="button" class="btn btn-info">Update</button>
+            <button type="button" class="btn btn-danger" (click)="DeleteInvoiceItem(item.product_ID)">Delete</button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <h4>Total Items : {{InvTotals.invoice_Total_Items}} </h4>
+<h4>Total Invoice Price : {{InvTotals.invoice_TotalPrice}}</h4>
